@@ -85,7 +85,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %build
 ./bootstrap
-/bin/bash %configure \
+%configure \
 	--enable-external-libraries
 %{__make}
 
