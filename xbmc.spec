@@ -3,6 +3,7 @@
 # fix endless loop on ./configure
 # add missing BRs
 # make it build and add %files
+# configure requires bash
 #
 %define     _subver b1
 Summary:	XBMC
