@@ -3,7 +3,6 @@
 # fix endless loop on ./configure
 # add missing BRs
 # make it build and add %files
-# configure requires bash
 #
 %define     _subver b1
 Summary:	XBMC
@@ -15,6 +14,7 @@ Group:		Applications/Multimedia
 Source0:	http://downloads.sourceforge.net/project/xbmc/XBMC%20Source%20Code/pre-release/%{name}-%{version}-%{_subver}.tar.gz
 # Source0-md5:	a5fa3c4e3ad5a17b91e444ff9a72986d
 URL:		http://xbmc.org
+Patch0:		%{name}-nobash.patch
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	a52dec-libs-devel
@@ -81,6 +81,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %prep
 %setup -q -n %{name}-%{version}-%{_subver}
+%patch0 -p1
 
 %build
 ./bootstrap
