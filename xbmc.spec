@@ -1,8 +1,9 @@
 #
 # TODO:
-# fix endless loop on ./configure
-# add missing BRs
-# make it build and add %files
+#  - fix build flags - some files are compiled with -O3 and without rpm*flags
+#  - fix linking order
+#  - fix install - add DESTDIR support
+#  - don't put binary in %{_datadir} and fix start scripts
 #
 %define     _subver b1
 Summary:	XBMC
@@ -64,6 +65,7 @@ BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel
 BuildRequires:	python-devel
+BuildRequires:	rpm-pythonprov
 # used internally
 BuildRequires:	sed >= 4.0
 BuildRequires:	sqlite3-devel
@@ -93,8 +95,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	prefix=$RPM_BUILD_ROOT/usr
+	prefix=$RPM_BUILD_ROOT%{_prefix}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -106,3 +107,4 @@ rm -rf $RPM_BUILD_ROOT
 #%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
+%{_datadir}/xsessions/XBMC.desktop
