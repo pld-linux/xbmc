@@ -17,6 +17,7 @@ Source0:	http://downloads.sourceforge.net/project/xbmc/XBMC%20Source%20Code/pre-
 URL:		http://xbmc.org
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
+BuildRequires:	a52dec-libs-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -30,6 +31,7 @@ BuildRequires:	enca-devel
 BuildRequires:	esound-devel
 BuildRequires:	faac-devel
 BuildRequires:	faad2-devel
+BuildRequires:	ffmpeg-devel
 BuildRequires:	flac-devel
 BuildRequires:	fontconfig-devel
 BuildRequires:	freetype-devel
@@ -43,9 +45,11 @@ BuildRequires:	hal-devel
 BuildRequires:	jasper-devel
 BuildRequires:	libao-devel
 BuildRequires:	libcdio-devel
+BuildRequires:	libdts-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
 BuildRequires:	libmms-devel
+BuildRequires:	libmpeg2-devel
 BuildRequires:	libogg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libsamplerate-devel
@@ -59,8 +63,12 @@ BuildRequires:	mysql-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel
+BuildRequires:	python-devel
+# used internally
+BuildRequires:	sed >= 4.0
 BuildRequires:	sqlite3-devel
 BuildRequires:	unzip
+BuildRequires:	wavpack-devel
 BuildRequires:	xmms-devel
 BuildRequires:	xorg-lib-libXinerama-devel
 BuildRequires:	xorg-lib-libXrandr-devel
@@ -76,7 +84,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %build
 ./bootstrap
-%configure
+/bin/bash %configure \
+	--enable-external-libraries
 %{__make}
 
 %install
