@@ -77,6 +77,8 @@ BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	zip
 BuildRequires:	zlib-devel
+Requires:	lsb-release
+Requires:	xorg-app-xdpyinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -107,4 +109,6 @@ rm -rf $RPM_BUILD_ROOT
 #%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
+%attr(755,root,root) %{_datadir}/%{name}/xbmc.bin
+%attr(755,root,root) %{_datadir}/%{name}/xbmc-xrandr
 %{_datadir}/xsessions/XBMC.desktop
