@@ -61,6 +61,7 @@ BuildRequires:	libvdpau-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	lzo-devel
 BuildRequires:	mysql-devel
+BuildRequires:	nasm
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel
