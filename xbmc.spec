@@ -5,7 +5,7 @@
 #  - fix install - add DESTDIR support
 #  - don't put binary in %{_datadir} and fix start scripts
 #
-%define     _subver b1
+%define     _subver b2
 Summary:	XBMC
 Name:		xbmc
 Version:	9.11
@@ -13,7 +13,7 @@ Release:	0.%{_subver}.0.1
 License:	GPL v3)
 Group:		Applications/Multimedia
 Source0:	http://downloads.sourceforge.net/project/xbmc/XBMC%20Source%20Code/pre-release/%{name}-%{version}-%{_subver}.tar.gz
-# Source0-md5:	a5fa3c4e3ad5a17b91e444ff9a72986d
+# Source0-md5:	eb7a275dbe11ae4f6432a217491058a2
 URL:		http://xbmc.org
 Patch0:		%{name}-nobash.patch
 BuildRequires:	SDL_image-devel
