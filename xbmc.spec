@@ -1,7 +1,7 @@
 #
 # TODO:
 #  - fix build flags - some files are compiled with -O3 and without rpm*flags
-#  - fix linking order
+#  - fix linking argument order
 #  - fix install - add DESTDIR support
 #  - don't put binary in %{_datadir} and fix start scripts
 #
@@ -11,7 +11,7 @@ Version:	9.11
 Release:	0.1
 License:	GPL v3
 Group:		Applications/Multimedia
-Source0:	http://downloads.sourceforge.net/project/xbmc/XBMC%20Source%20Code/Camelot%20-%209.11/xbmc-9.11.tar.gz
+Source0:	http://downloads.sourceforge.net/project/xbmc/XBMC%20Source%20Code/Camelot%20-%209.11/%{name}-%{version}.tar.gz
 # Source0-md5:	9a68ac1e2f44a54cc3803fcdb1265767
 URL:		http://xbmc.org
 Patch0:		%{name}-nobash.patch
@@ -60,7 +60,9 @@ BuildRequires:	libvdpau-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	lzo-devel
 BuildRequires:	mysql-devel
+%ifarch %{ix86}
 BuildRequires:	nasm
+%endif
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel
@@ -84,7 +86,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p1
 
 %build
@@ -111,4 +113,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %attr(755,root,root) %{_datadir}/%{name}/xbmc.bin
 %attr(755,root,root) %{_datadir}/%{name}/xbmc-xrandr
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.png
 %{_datadir}/xsessions/XBMC.desktop
