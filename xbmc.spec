@@ -5,15 +5,14 @@
 #  - fix install - add DESTDIR support
 #  - don't put binary in %{_datadir} and fix start scripts
 #
-%define     _subver b2
 Summary:	XBMC
 Name:		xbmc
 Version:	9.11
-Release:	0.%{_subver}.0.1
-License:	GPL v3)
+Release:	0.1
+License:	GPL v3
 Group:		Applications/Multimedia
-Source0:	http://downloads.sourceforge.net/project/xbmc/XBMC%20Source%20Code/pre-release/%{name}-%{version}-%{_subver}.tar.gz
-# Source0-md5:	eb7a275dbe11ae4f6432a217491058a2
+Source0:	http://downloads.sourceforge.net/project/xbmc/XBMC%20Source%20Code/Camelot%20-%209.11/xbmc-9.11.tar.gz
+# Source0-md5:	9a68ac1e2f44a54cc3803fcdb1265767
 URL:		http://xbmc.org
 Patch0:		%{name}-nobash.patch
 BuildRequires:	SDL_image-devel
@@ -85,7 +84,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 
 %prep
-%setup -q -n %{name}-%{version}-%{_subver}
+%setup -q -n %{name}-%{version}
 %patch0 -p1
 
 %build
