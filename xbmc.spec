@@ -15,6 +15,7 @@ Source0:	http://downloads.sourceforge.net/project/xbmc/XBMC%20Source%20Code/Came
 # Source0-md5:	9a68ac1e2f44a54cc3803fcdb1265767
 URL:		http://xbmc.org
 Patch0:		%{name}-nobash.patch
+Patch1:		%{name}-libpng14.patch
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	a52dec-libs-devel
@@ -88,11 +89,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 ./bootstrap
 %configure \
-	--enable-external-libraries
+	--disable-debug \
+	--enable-external-libraries \
+	--enable-external-python
 %{__make}
 
 %install
