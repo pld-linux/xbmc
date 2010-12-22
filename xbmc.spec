@@ -35,6 +35,7 @@ BuildRequires:	bzip2-devel
 BuildRequires:	cmake
 BuildRequires:	curl-devel
 BuildRequires:	dbus-devel
+BuildRequires:	enca
 BuildRequires:	enca-devel
 BuildRequires:	faac-devel
 BuildRequires:	faad2-devel
