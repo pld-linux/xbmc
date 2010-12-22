@@ -100,6 +100,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %prep
 %setup -q
 %patch0 -p1
+enca -L none -x ISO8859-1 xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp
 %patch1 -p1
 #%patch2 -p1
 
