@@ -17,7 +17,7 @@ Version:	10.0
 Release:	0.1
 License:	GPL v3
 Group:		Applications/Multimedia
-Source0:	http://downloads.sourceforge.net/project/xbmc/XBMC%20Source%20Code/Camelot%20-%209.11/%{name}-%{version}.tar.gz
+Source0:	http://www.softliste.de/xbmc/releases/source/%{name}-%{version}.tar.gz
 # Source0-md5:	728fb514e5f43f27bb880305061b4e72
 URL:		http://xbmc.org
 Patch0:		%{name}-nobash.patch
