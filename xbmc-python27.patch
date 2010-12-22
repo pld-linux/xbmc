@@ -1,6 +1,6 @@
 diff -urN xbmc-10.0.orig/configure.in xbmc-10.0/configure.in
---- xbmc-10.0.orig/configure.in	2010-12-21 23:21:08.751000004 +0100
-+++ xbmc-10.0/configure.in	2010-12-22 01:06:41.772000004 +0100
+--- xbmc-10.0.orig/configure.in	2010-12-22 20:53:28.933000073 +0100
++++ xbmc-10.0/configure.in	2010-12-22 20:53:50.418999675 +0100
 @@ -919,7 +919,11 @@
  
  # External Python
@@ -35,8 +35,8 @@ diff -urN xbmc-10.0.orig/configure.in xbmc-10.0/configure.in
  AC_SUBST(USE_PYTHON2_5)
  AC_SUBST(USE_PYTHON2_4)
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/linux/Makefile.in xbmc-10.0/xbmc/lib/libPython/linux/Makefile.in
---- xbmc-10.0.orig/xbmc/lib/libPython/linux/Makefile.in	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/linux/Makefile.in	2010-12-21 23:27:31.133000004 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/linux/Makefile.in	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/linux/Makefile.in	2010-12-22 20:53:50.422999775 +0100
 @@ -5,7 +5,10 @@
  SHELL=/bin/bash
  SYSDIR=../../../../system/python
@@ -50,8 +50,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/linux/Makefile.in xbmc-10.0/xbmc/lib
      SO=python26-$(ARCH).so
  else ifeq (@USE_PYTHON2_5@,1)
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/action.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/action.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/action.h	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/action.h	2010-12-21 23:55:05.712000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/action.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/action.h	2010-12-22 20:53:50.422999775 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -64,8 +64,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/action.h xbmc-10.0/xbmc/l
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlbutton.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlbutton.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlbutton.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlbutton.cpp	2010-12-21 23:55:05.716000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlbutton.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlbutton.cpp	2010-12-22 20:53:50.423999796 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -78,8 +78,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlbutton.cpp xbmc-10
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlcheckmark.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlcheckmark.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlcheckmark.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlcheckmark.cpp	2010-12-21 23:55:05.718000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlcheckmark.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlcheckmark.cpp	2010-12-22 20:53:50.424999804 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -92,8 +92,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlcheckmark.cpp xbmc
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlfadelabel.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlfadelabel.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlfadelabel.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlfadelabel.cpp	2010-12-21 23:55:05.720000004 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlfadelabel.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlfadelabel.cpp	2010-12-22 20:53:50.424999804 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -106,8 +106,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlfadelabel.cpp xbmc
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlgroup.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlgroup.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlgroup.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlgroup.cpp	2010-12-21 23:55:05.720000004 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlgroup.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlgroup.cpp	2010-12-22 20:53:50.424999804 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -120,8 +120,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlgroup.cpp xbmc-10.
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/control.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/control.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/control.h	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/control.h	2010-12-21 23:55:05.721000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/control.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/control.h	2010-12-22 20:53:50.425999833 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -134,8 +134,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/control.h xbmc-10.0/xbmc/
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlimage.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlimage.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlimage.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlimage.cpp	2010-12-21 23:55:05.722000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlimage.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlimage.cpp	2010-12-22 20:53:50.425999833 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -148,8 +148,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlimage.cpp xbmc-10.
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controllabel.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controllabel.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controllabel.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controllabel.cpp	2010-12-21 23:55:05.722000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controllabel.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controllabel.cpp	2010-12-22 20:53:50.426999866 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -162,8 +162,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controllabel.cpp xbmc-10.
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controllist.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controllist.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controllist.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controllist.cpp	2010-12-21 23:55:05.724000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controllist.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controllist.cpp	2010-12-22 20:53:50.427999896 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -176,8 +176,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controllist.cpp xbmc-10.0
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlprogress.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlprogress.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlprogress.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlprogress.cpp	2010-12-21 23:55:05.725000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlprogress.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlprogress.cpp	2010-12-22 20:53:50.427999896 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -190,8 +190,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlprogress.cpp xbmc-
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlradiobutton.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlradiobutton.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlradiobutton.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlradiobutton.cpp	2010-12-21 23:55:05.726000004 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlradiobutton.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlradiobutton.cpp	2010-12-22 20:53:50.428999923 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -204,8 +204,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlradiobutton.cpp xb
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlslider.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlslider.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlslider.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlslider.cpp	2010-12-21 23:55:05.726000004 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlslider.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlslider.cpp	2010-12-22 20:53:50.428999923 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -218,8 +218,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlslider.cpp xbmc-10
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlspin.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlspin.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlspin.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlspin.cpp	2010-12-21 23:55:05.727000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlspin.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controlspin.cpp	2010-12-22 20:53:50.429999947 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -232,8 +232,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controlspin.cpp xbmc-10.0
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controltextbox.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controltextbox.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controltextbox.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controltextbox.cpp	2010-12-21 23:55:05.727000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controltextbox.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/controltextbox.cpp	2010-12-22 20:53:50.429999947 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -246,8 +246,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/controltextbox.cpp xbmc-1
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/dialog.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/dialog.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/dialog.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/dialog.cpp	2010-12-21 23:55:05.729000005 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/dialog.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/dialog.cpp	2010-12-22 20:53:50.430999968 +0100
 @@ -24,7 +24,9 @@
  #endif
  #include "dialog.h"
@@ -260,8 +260,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/dialog.cpp xbmc-10.0/xbmc
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/dialog.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/dialog.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/dialog.h	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/dialog.h	2010-12-21 23:55:05.729000005 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/dialog.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/dialog.h	2010-12-22 20:53:50.430999968 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -274,8 +274,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/dialog.h xbmc-10.0/xbmc/l
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/GUIPythonWindow.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/GUIPythonWindow.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/GUIPythonWindow.h	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/GUIPythonWindow.h	2010-12-21 23:55:05.731000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/GUIPythonWindow.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/GUIPythonWindow.h	2010-12-22 20:53:50.431999986 +0100
 @@ -26,7 +26,9 @@
    #include "config.h"
  #endif
@@ -288,8 +288,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/GUIPythonWindow.h xbmc-10
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/infotagmusic.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/infotagmusic.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/infotagmusic.h	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/infotagmusic.h	2010-12-21 23:55:05.733000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/infotagmusic.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/infotagmusic.h	2010-12-22 20:53:50.431999986 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -302,8 +302,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/infotagmusic.h xbmc-10.0/
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/infotagvideo.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/infotagvideo.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/infotagvideo.h	2010-12-21 22:52:14.489000003 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/infotagvideo.h	2010-12-21 23:55:05.734000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/infotagvideo.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/infotagvideo.h	2010-12-22 20:53:50.431999986 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -316,8 +316,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/infotagvideo.h xbmc-10.0/
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/keyboard.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/keyboard.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/keyboard.h	2010-12-21 22:52:14.489000003 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/keyboard.h	2010-12-21 23:55:05.735000005 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/keyboard.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/keyboard.h	2010-12-22 20:53:50.432999995 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -330,8 +330,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/keyboard.h xbmc-10.0/xbmc
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/listitem.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/listitem.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/listitem.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/listitem.cpp	2010-12-21 23:55:05.737000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/listitem.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/listitem.cpp	2010-12-22 20:53:50.432999995 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -344,8 +344,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/listitem.cpp xbmc-10.0/xb
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/listitem.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/listitem.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/listitem.h	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/listitem.h	2010-12-21 23:55:05.737000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/listitem.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/listitem.h	2010-12-22 20:53:50.434000016 +0100
 @@ -25,7 +25,9 @@
    #include "config.h"
  #endif
@@ -358,8 +358,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/listitem.h xbmc-10.0/xbmc
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/player.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/player.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/player.h	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/player.h	2010-12-21 23:55:05.739000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/player.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/player.h	2010-12-22 20:53:50.434000016 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -372,8 +372,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/player.h xbmc-10.0/xbmc/l
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyplaylist.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/pyplaylist.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyplaylist.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/pyplaylist.cpp	2010-12-21 23:55:05.740000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyplaylist.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/pyplaylist.cpp	2010-12-22 20:53:50.435000034 +0100
 @@ -26,7 +26,9 @@
  #include "Util.h"
  #include "pyplaylist.h"
@@ -386,8 +386,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyplaylist.cpp xbmc-10.0/
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyplaylist.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/pyplaylist.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyplaylist.h	2010-12-21 22:52:14.489000003 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/pyplaylist.h	2010-12-21 23:55:05.740000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyplaylist.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/pyplaylist.h	2010-12-22 20:53:50.435000034 +0100
 @@ -25,7 +25,9 @@
    #include "config.h"
  #endif
@@ -400,8 +400,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyplaylist.h xbmc-10.0/xb
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/PythonAddon.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/PythonAddon.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/PythonAddon.h	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/PythonAddon.h	2010-12-21 23:55:05.741000005 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/PythonAddon.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/PythonAddon.h	2010-12-22 20:53:50.436000047 +0100
 @@ -25,7 +25,9 @@
    #include "config.h"
  #endif
@@ -414,8 +414,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/PythonAddon.h xbmc-10.0/x
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/PythonPlayer.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/PythonPlayer.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/PythonPlayer.h	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/PythonPlayer.h	2010-12-21 23:55:05.742000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/PythonPlayer.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/PythonPlayer.h	2010-12-22 20:53:50.436000047 +0100
 @@ -25,7 +25,9 @@
    #include "config.h"
  #endif
@@ -428,8 +428,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/PythonPlayer.h xbmc-10.0/
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyutil.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/pyutil.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyutil.h	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/pyutil.h	2010-12-21 23:55:05.742000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyutil.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/pyutil.h	2010-12-22 20:53:50.436000047 +0100
 @@ -25,7 +25,9 @@
    #include "config.h"
  #endif
@@ -442,8 +442,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/pyutil.h xbmc-10.0/xbmc/l
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/window.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/window.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/window.h	2010-12-21 22:52:14.489000003 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/window.h	2010-12-21 23:55:05.745000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/window.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/window.h	2010-12-22 20:53:50.437000062 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -456,8 +456,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/window.h xbmc-10.0/xbmc/l
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxml.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/winxml.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxml.cpp	2010-12-21 22:52:14.489000003 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/winxml.cpp	2010-12-21 23:55:05.746000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxml.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/winxml.cpp	2010-12-22 20:53:50.437000062 +0100
 @@ -24,7 +24,9 @@
  #endif
  #include "winxml.h"
@@ -470,8 +470,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxml.cpp xbmc-10.0/xbmc
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxmldialog.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/winxmldialog.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxmldialog.cpp	2010-12-21 22:52:14.489000003 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/winxmldialog.cpp	2010-12-21 23:55:05.746000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxmldialog.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/winxmldialog.cpp	2010-12-22 20:53:50.438000084 +0100
 @@ -24,7 +24,9 @@
  #endif
  #include "winxml.h"
@@ -484,8 +484,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxmldialog.cpp xbmc-10.
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxml.h xbmc-10.0/xbmc/lib/libPython/xbmcmodule/winxml.h
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxml.h	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/winxml.h	2010-12-21 23:55:05.747000005 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxml.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/winxml.h	2010-12-22 20:53:50.438000084 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -498,8 +498,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/winxml.h xbmc-10.0/xbmc/l
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp	2010-12-21 23:55:05.747000005 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp	2010-12-22 20:55:44.030000318 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -512,8 +512,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp xbmc-
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcguimodule.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/xbmcguimodule.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcguimodule.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/xbmcguimodule.cpp	2010-12-22 00:09:19.572000006 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcguimodule.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/xbmcguimodule.cpp	2010-12-22 20:53:50.439000088 +0100
 @@ -23,7 +23,10 @@
    #include "config.h"
  #endif
@@ -527,8 +527,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcguimodule.cpp xbmc-10
      #include <python2.6/structmember.h>
    #elif (defined HAVE_LIBPYTHON2_5)
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcmodule.cpp xbmc-10.0/xbmc/lib/libPython/xbmcmodule/xbmcmodule.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcmodule.cpp	2010-12-21 22:52:14.490000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/xbmcmodule.cpp	2010-12-21 23:55:05.750000004 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcmodule.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/xbmcmodule/xbmcmodule.cpp	2010-12-22 20:53:50.440000089 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -541,8 +541,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/xbmcmodule/xbmcmodule.cpp xbmc-10.0/
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/Python.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/XBPython.cpp xbmc-10.0/xbmc/lib/libPython/XBPython.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/XBPython.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/XBPython.cpp	2010-12-22 00:02:48.858000005 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/XBPython.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/XBPython.cpp	2010-12-22 20:53:50.441000086 +0100
 @@ -24,7 +24,9 @@
    #include "config.h"
  #endif
@@ -610,8 +610,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/XBPython.cpp xbmc-10.0/xbmc/lib/libP
  #elif (defined HAVE_LIBPYTHON2_5)
  #define PYTHON_DLL "special://xbmcbin/system/python/python25-i486-linux.so"
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/XBPythonDll.cpp xbmc-10.0/xbmc/lib/libPython/XBPythonDll.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/XBPythonDll.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/XBPythonDll.cpp	2010-12-21 23:24:41.688000001 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/XBPythonDll.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/XBPythonDll.cpp	2010-12-22 20:53:50.442000081 +0100
 @@ -23,7 +23,9 @@
    #include "config.h"
  #endif
@@ -624,8 +624,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/XBPythonDll.cpp xbmc-10.0/xbmc/lib/l
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/pyconfig.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/XBPythonDllFuncs.S xbmc-10.0/xbmc/lib/libPython/XBPythonDllFuncs.S
---- xbmc-10.0.orig/xbmc/lib/libPython/XBPythonDllFuncs.S	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/XBPythonDllFuncs.S	2010-12-21 23:26:15.465000004 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/XBPythonDllFuncs.S	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/XBPythonDllFuncs.S	2010-12-22 20:53:50.442000081 +0100
 @@ -2,7 +2,9 @@
    #include "config.h"
  #endif
@@ -638,8 +638,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/XBPythonDllFuncs.S xbmc-10.0/xbmc/li
    #elif (defined HAVE_LIBPYTHON2_5)
      #include <python2.5/pyconfig.h>
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/XBPyThread.cpp xbmc-10.0/xbmc/lib/libPython/XBPyThread.cpp
---- xbmc-10.0.orig/xbmc/lib/libPython/XBPyThread.cpp	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/XBPyThread.cpp	2010-12-21 23:23:55.160000003 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/XBPyThread.cpp	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/XBPyThread.cpp	2010-12-22 20:53:50.442000081 +0100
 @@ -24,7 +24,10 @@
    #include "config.h"
  #endif
@@ -653,8 +653,8 @@ diff -urN xbmc-10.0.orig/xbmc/lib/libPython/XBPyThread.cpp xbmc-10.0/xbmc/lib/li
      #include <python2.6/osdefs.h>
    #elif (defined HAVE_LIBPYTHON2_5)
 diff -urN xbmc-10.0.orig/xbmc/lib/libPython/XBPyThread.h xbmc-10.0/xbmc/lib/libPython/XBPyThread.h
---- xbmc-10.0.orig/xbmc/lib/libPython/XBPyThread.h	2010-12-21 22:52:14.491000004 +0100
-+++ xbmc-10.0/xbmc/lib/libPython/XBPyThread.h	2010-12-21 23:24:02.289000004 +0100
+--- xbmc-10.0.orig/xbmc/lib/libPython/XBPyThread.h	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/lib/libPython/XBPyThread.h	2010-12-22 20:53:50.442000081 +0100
 @@ -26,7 +26,9 @@
    #include "config.h"
  #endif
