@@ -95,7 +95,7 @@ BuildRequires:	zlib-devel
 Requires:	/usr/bin/glxinfo
 Requires:	lsb-release
 Requires:	xorg-app-xdpyinfo
-Conflicts:	xorg-driver-video-nvidia <= 260.19.29
+Conflicts:	xorg-driver-video-nvidia <= 1:260.19.29
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
