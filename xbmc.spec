@@ -2,10 +2,11 @@
 # TODO:
 #  - fix build flags - some files are compiled with -O3 and without rpm*flags
 #  - fix linking argument order
-#  - fix nvidia vs. libXrandr >= 1.2 conflict (nvidia drivers still supports 
-#    only libXrandr 1.1 - with no gamma support)
+#  - fix nvidia vs. libXrandr >= 1.2 conflict (nvidia drivers still supports
+#    only libXrandr 1.1 - with no gamma support; it causes application crash
+#    on XRRSetCrtcGamma function called by SDL_SetVideoMode)
 #  - add and/or fix users/groups permissions
-#  - didvide to subpackages?
+#  - split to subpackages?
 #  - check how it works with external python libraries
 #
 # Conditional build:
@@ -21,7 +22,7 @@ Source0:	http://www.softliste.de/xbmc/releases/source/%{name}-%{version}.tar.gz
 # Source0-md5:	728fb514e5f43f27bb880305061b4e72
 URL:		http://xbmc.org
 Patch0:		%{name}-nobash.patch
-Patch1:         %{name}-python27.patch
+Patch1:		%{name}-python27.patch
 Patch2:		%{name}-libpng14.patch
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
@@ -45,7 +46,7 @@ BuildRequires:	fontconfig-devel
 BuildRequires:	freetype-devel
 BuildRequires:	fribidi-devel
 BuildRequires:	gawk
-BuildRequires:  gettext-autopoint
+BuildRequires:	gettext-autopoint
 BuildRequires:	gettext-devel
 BuildRequires:	glew-devel
 BuildRequires:	gperf
@@ -57,9 +58,9 @@ BuildRequires:	libcdio-devel
 BuildRequires:	libdts-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
-BuildRequires:  libmicrohttpd-devel
-BuildRequires:  libmodplug-devel
+BuildRequires:	libmicrohttpd-devel
 BuildRequires:	libmms-devel
+BuildRequires:	libmodplug-devel
 BuildRequires:	libmpeg2-devel
 BuildRequires:	libogg-devel
 BuildRequires:	libpng-devel
@@ -75,7 +76,7 @@ BuildRequires:	mysql-devel
 BuildRequires:	nasm
 %endif
 BuildRequires:	openssl-devel
-BuildRequires:  pcre-cxx-devel
+BuildRequires:	pcre-cxx-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel
 BuildRequires:	python-devel
@@ -91,9 +92,10 @@ BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	zip
 BuildRequires:	zlib-devel
+Requires:	/usr/bin/glxinfo
 Requires:	lsb-release
 Requires:	xorg-app-xdpyinfo
-Requires:	/usr/bin/glxinfo
+Conflicts:	xorg-driver-video-nvidia <= 260.19.29
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
