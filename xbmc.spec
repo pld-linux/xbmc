@@ -95,7 +95,6 @@ BuildRequires:	zlib-devel
 Requires:	/usr/bin/glxinfo
 Requires:	lsb-release
 Requires:	xorg-app-xdpyinfo
-Conflicts:	xorg-driver-video-nvidia <= 1:260.19.29
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -123,6 +122,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%posttrans
+%banner -e xbmc <<EOF
+WARNING!
+If you use nvidia binary drivers be sure that SDL is compiled without
+XRandR and VidMode gamma ramps support.
+This means that you need to rebuild it with command:
+builder -bb --without new_gamma_ramp SDL
+EOF
 
 %files
 %defattr(644,root,root,755)
