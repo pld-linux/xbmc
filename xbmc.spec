@@ -11,6 +11,7 @@
 #
 # Conditional build:
 %bcond_with     external_python
+%bcond_without	goom
 
 Summary:	XBMC
 Name:		xbmc
@@ -111,7 +112,8 @@ enca -L none -x ISO8859-1 xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp
 %configure \
 	--disable-debug \
 	--enable-external-libraries \
-	--%{?with_external_python:en}%{!?with_external_python:dis}able-external-python
+	--%{?with_external_python:en}%{!?with_external_python:dis}able-external-python \
+	--%{?with_goom:en}%{!?with_goom:dis}able-goom
 %{__make}
 
 %install
