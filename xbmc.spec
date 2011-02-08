@@ -16,7 +16,7 @@
 Summary:	XBMC
 Name:		xbmc
 Version:	10.0
-Release:	0.1
+Release:	0.2
 License:	GPL v3
 Group:		Applications/Multimedia
 Source0:	http://www.softliste.de/xbmc/releases/source/%{name}-%{version}.tar.gz
@@ -37,7 +37,6 @@ BuildRequires:	bzip2-devel
 BuildRequires:	cmake
 BuildRequires:	curl-devel
 BuildRequires:	dbus-devel
-BuildRequires:	enca
 BuildRequires:	enca-devel
 BuildRequires:	faac-devel
 BuildRequires:	faad2-devel
@@ -103,7 +102,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %prep
 %setup -q
 %patch0 -p1
-enca -L none -x ISO8859-1 xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp
+%undos xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp
 %patch1 -p1
 %patch2 -p1
 
