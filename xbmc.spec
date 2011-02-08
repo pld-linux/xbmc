@@ -24,7 +24,7 @@ Source0:	http://www.softliste.de/xbmc/releases/source/%{name}-%{version}.tar.gz
 URL:		http://xbmc.org
 Patch0:		%{name}-nobash.patch
 Patch1:		%{name}-python27.patch
-Patch2:		%{name}-libpng14.patch
+Patch2:		%{name}-subtitle_tags.patch
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	a52dec-libs-devel
@@ -105,7 +105,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %patch0 -p1
 enca -L none -x ISO8859-1 xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp
 %patch1 -p1
-#%patch2 -p1
+%patch2 -p1
 
 %build
 ./bootstrap
