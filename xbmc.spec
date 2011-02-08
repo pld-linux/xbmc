@@ -81,6 +81,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.566
 # used internally
 BuildRequires:	sed >= 4.0
 BuildRequires:	sqlite3-devel
