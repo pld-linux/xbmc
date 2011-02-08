@@ -1,0 +1,71 @@
+--- xbmc-10.0/xbmc/GUIWindowFullScreen.cpp.orig	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/GUIWindowFullScreen.cpp	2011-02-04 22:05:15.000000000 +0100
+@@ -47,9 +47,11 @@
+ #include "LocalizeStrings.h"
+ #include "utils/SingleLock.h"
+ #include "utils/log.h"
++#include "utils/RegExp.h"
+ #include "utils/TimeUtils.h"
+ #include "DateTime.h"
+ #include "ButtonTranslator.h"
++#include "StringUtils.h"
+ 
+ #include <stdio.h>
+ 
+@@ -855,6 +857,56 @@
+       subtitleText.Replace("</b", "[/B]");
+       subtitleText.Replace("</u", "");
+ 
++      CStdString strTag;
++      CRegExp reg(true);
++      if (reg.RegComp("({y:i})"))
++      {
++          if (reg.RegFind(subtitleText) >= 0)
++          {
++              strTag = reg.GetMatch(1);
++              subtitleText.Replace(strTag, "[I]");
++              subtitleText += "[/I]";
++          }
++      }
++      if (reg.RegComp("({y:b})"))
++      {
++          if (reg.RegFind(subtitleText) >= 0)
++          {
++              strTag = reg.GetMatch(1);
++              subtitleText.Replace(strTag, "[B]");
++              subtitleText += "[/B]";
++          }
++      }
++
++      bool bChange = false;
++      int iPos;
++      reg.RegComp("({c:\\$).+}");
++      CStdStringArray aLines;
++      StringUtils::SplitString(subtitleText, "[CR]", aLines);
++      for (unsigned int i=0; i < aLines.size(); ++i)
++      {
++          if (aLines[i].IsEmpty())
++              continue;
++
++          if (aLines[i].GetAt(0) == '/')
++          {
++              aLines[i].Delete(0);
++              aLines[i] = "[I]" + aLines[i] + "[/I]";
++              bChange = true;
++          }
++          if ( (iPos = reg.RegFind(aLines[i])) >= 0)
++          {
++              strTag = reg.GetMatch(1);
++              aLines[i].Replace(strTag, "[COLOR FF");
++              iPos = aLines[i].Find("}", iPos);
++              aLines[i].SetAt(iPos, ']');
++              aLines[i] += "[/COLOR]";
++              bChange = true;
++          }
++      }
++      if (bChange)
++          StringUtils::JoinString(aLines, "[CR]", subtitleText);
++
+       RESOLUTION res = g_graphicsContext.GetVideoResolution();
+       g_graphicsContext.SetRenderingResolution(res, false);
+ 
