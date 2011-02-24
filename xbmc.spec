@@ -16,15 +16,18 @@
 Summary:	XBMC
 Name:		xbmc
 Version:	10.0
-Release:	0.2
+Release:	0.3
 License:	GPL v3
 Group:		Applications/Multimedia
 Source0:	http://www.softliste.de/xbmc/releases/source/%{name}-%{version}.tar.gz
 # Source0-md5:	728fb514e5f43f27bb880305061b4e72
+Source1:	goom_icon.png
+# Source1-md5:	8c0ffe2055f2cfde1189687d12a68aa8
 URL:		http://xbmc.org
 Patch0:		%{name}-nobash.patch
 Patch1:		%{name}-python27.patch
 Patch2:		%{name}-subtitle_tags.patch
+Patch3:		%{name}-goom_enable.patch
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	a52dec-libs-devel
@@ -106,6 +109,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %undos xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 ./bootstrap
@@ -121,6 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+	install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/xbmc/addons/visualization.goom/icon.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
