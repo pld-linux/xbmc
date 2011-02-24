@@ -1,0 +1,11 @@
+--- xbmc-10.0/xbmc/visualizations/Goom/visualization.goom/addon.xml.orig	2011-02-24 01:24:33.697999992 +0100
++++ xbmc-10.0/xbmc/visualizations/Goom/visualization.goom/addon.xml	2011-02-24 01:26:01.371999992 +0100
+@@ -7,4 +7,8 @@
+   <extension
+     point="xbmc.player.musicviz"
+     library_linux="Goom.vis" />
++  <extension 
++    point="xbmc.addon.metadata">
++       <platform>linux wingl</platform>
++  </extension>
+ </addon>
