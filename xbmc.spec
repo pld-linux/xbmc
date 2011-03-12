@@ -15,12 +15,12 @@
 
 Summary:	XBMC
 Name:		xbmc
-Version:	10.0
-Release:	0.3
+Version:	10.1
+Release:	0.1
 License:	GPL v3
 Group:		Applications/Multimedia
 Source0:	http://www.softliste.de/xbmc/releases/source/%{name}-%{version}.tar.gz
-# Source0-md5:	728fb514e5f43f27bb880305061b4e72
+# Source0-md5:	391398126cb86a4f6fbd0b7037997d84
 Source1:	goom_icon.png
 # Source1-md5:	8c0ffe2055f2cfde1189687d12a68aa8
 URL:		http://xbmc.org
@@ -97,6 +97,7 @@ BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	zip
 BuildRequires:	zlib-devel
 Requires:	/usr/bin/glxinfo
+Requires:	SDL >= 1.2.14-5
 Requires:	lsb-release
 Requires:	xorg-app-xdpyinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -129,15 +130,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%posttrans
-%banner -e xbmc <<EOF
-WARNING!
-If you use nvidia binary drivers be sure that SDL is compiled without
-XRandR and VidMode gamma ramps support.
-This means that you need to rebuild it with command:
-builder -bb --without new_gamma_ramp SDL
-EOF
 
 %files
 %defattr(644,root,root,755)
