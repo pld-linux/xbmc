@@ -12,10 +12,11 @@
  
  #include <stdio.h>
  
-@@ -855,6 +857,56 @@
+@@ -855,6 +857,57 @@
        subtitleText.Replace("</b", "[/B]");
        subtitleText.Replace("</u", "");
  
++      subtitleText.Replace("{y:u}", "");
 +      CStdString strTag;
 +      CRegExp reg(true);
 +      if (reg.RegComp("({y:i})"))
