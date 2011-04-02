@@ -16,7 +16,7 @@
 Summary:	XBMC
 Name:		xbmc
 Version:	10.1
-Release:	0.1
+Release:	0.2
 License:	GPL v3
 Group:		Applications/Multimedia
 Source0:	http://www.softliste.de/xbmc/releases/source/%{name}-%{version}.tar.gz
@@ -28,6 +28,7 @@ Patch0:		%{name}-nobash.patch
 Patch1:		%{name}-python27.patch
 Patch2:		%{name}-subtitle_tags.patch
 Patch3:		%{name}-goom_enable.patch
+Patch4:		%{name}-fpsrate.patch
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	a52dec-libs-devel
@@ -111,6 +112,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 ./bootstrap
