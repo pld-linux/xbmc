@@ -1,0 +1,15 @@
+--- xbmc-10.0/xbmc/cores/dvdplayer/DVDSubtitles/DVDSubtitleParserMicroDVD.cpp.orig	2010-12-17 07:17:41.000000000 +0100
++++ xbmc-10.0/xbmc/cores/dvdplayer/DVDSubtitles/DVDSubtitleParserMicroDVD.cpp	2011-02-04 22:05:12.000000000 +0100
+@@ -48,7 +48,11 @@
+   CLog::Log(LOGDEBUG, "%s - framerate %d:%d", __FUNCTION__, hints.fpsrate, hints.fpsscale);
+   if (hints.fpsscale > 0 && hints.fpsrate > 0)
+   {
+-    m_framerate = (double)hints.fpsscale / (double)hints.fpsrate;
++    double fpsrate = (double)hints.fpsrate;
++    if (hints.fpsrate == 24)
++      fpsrate = 23.976125;
++
++    m_framerate = (double)hints.fpsscale / fpsrate;
+     m_framerate *= DVD_TIME_BASE;
+   }
+   else
