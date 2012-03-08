@@ -15,20 +15,16 @@
 
 Summary:	XBMC
 Name:		xbmc
-Version:	10.1
-Release:	0.2
+Version:	11.0
+Release:	0.rc2.1
 License:	GPL v3
 Group:		Applications/Multimedia
-Source0:	http://www.softliste.de/xbmc/releases/source/%{name}-%{version}.tar.gz
-# Source0-md5:	391398126cb86a4f6fbd0b7037997d84
+Source0:	http://mirrors.xbmc.org/releases/source/xbmc-%{version}-Eden_rc2.tar.gz
+# Source0-md5:	66ae950474aa9e70712fc820efc1cb67
 Source1:	goom_icon.png
 # Source1-md5:	8c0ffe2055f2cfde1189687d12a68aa8
 URL:		http://xbmc.org
-Patch0:		%{name}-nobash.patch
-Patch1:		%{name}-python27.patch
-Patch2:		%{name}-subtitle_tags.patch
-Patch3:		%{name}-goom_enable.patch
-Patch4:		%{name}-fpsrate.patch
+Patch0:		libpng-1.5.patch
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	a52dec-libs-devel
@@ -38,6 +34,7 @@ BuildRequires:	automake
 BuildRequires:	avahi-devel
 BuildRequires:	boost-devel
 BuildRequires:	bzip2-devel
+BuildRequires:	bluez-libs-devel >= 4.99
 BuildRequires:	cmake
 BuildRequires:	curl-devel
 BuildRequires:	dbus-devel
@@ -97,6 +94,7 @@ BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	zip
 BuildRequires:	zlib-devel
+BuildRequires:	libass-devel
 Requires:	/usr/bin/glxinfo
 Requires:	SDL >= 1.2.14-5
 Requires:	lsb-release
@@ -106,13 +104,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-Eden_rc2
 %patch0 -p1
-%undos xbmc/lib/libPython/xbmcmodule/xbmcaddonmodule.cpp
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 %build
 ./bootstrap
