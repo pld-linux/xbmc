@@ -12,11 +12,12 @@
 # Conditional build:
 %bcond_with     external_python
 %bcond_without	goom
+%bcond_with	hal
 
 Summary:	XBMC
 Name:		xbmc
 Version:	11.0
-Release:	0.rc2.1
+Release:	0.rc2.2
 License:	GPL v3
 Group:		Applications/Multimedia
 Source0:	http://mirrors.xbmc.org/releases/source/xbmc-%{version}-Eden_rc2.tar.gz
@@ -52,7 +53,9 @@ BuildRequires:	gettext-devel
 BuildRequires:	glew-devel
 BuildRequires:	gperf
 BuildRequires:	gtk+-devel
+%if %{with hal}
 BuildRequires:	hal-devel
+%endif
 BuildRequires:	jasper-devel
 BuildRequires:	libao-devel
 BuildRequires:	libcdio-devel
@@ -113,7 +116,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 	--disable-debug \
 	--enable-external-libraries \
 	--%{?with_external_python:en}%{!?with_external_python:dis}able-external-python \
-	--%{?with_goom:en}%{!?with_goom:dis}able-goom
+	--%{?with_goom:en}%{!?with_goom:dis}able-goom \
+        --%{?with_hal:en}%{!?with_hal:dis}able-hal
 %{__make}
 
 %install
