@@ -9,18 +9,18 @@
 #  - split to subpackages?
 #
 # Conditional build:
-%bcond_without	goom
-%bcond_with	hal
+%bcond_without	goom	# build without goom visualisation
+%bcond_with	hal			# build with HAL
 
-Summary:	XBMC
+Summary:	XBMC is a free and open source media-player and entertainment hub
 Name:		xbmc
 Version:	11.0
 Release:	1
-License:	GPL v3
+License:	GPL v2+ and GPL v3+
 Group:		Applications/Multimedia
-Source0:	http://mirrors.xbmc.org/releases/source/xbmc-%{version}.tar.gz
+Source0:	http://mirrors.xbmc.org/releases/source/%{name}-%{version}.tar.gz
 # Source0-md5:	9e8a26ee25173c7268abea7f1d82d428
-URL:		http://xbmc.org
+URL:		http://xbmc.org/
 BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel
@@ -117,6 +117,10 @@ Requires:	xorg-app-xdpyinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+XBMC media center is a free cross-platform media-player jukebox and
+entertainment hub. XBMC can play a spectrum of of multimedia formats,
+and featuring playlist, audio visualizations, slideshow, and weather
+forecast functions, together third-party plugins.
 
 %prep
 %setup -q
@@ -135,12 +139,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 	--disable-crystalhd \
 	%{__enable_disable goom} \
 	%{__enable_disable hal}
-	
+
 %{__make} V=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
