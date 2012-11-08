@@ -20,6 +20,8 @@ License:	GPL v2+ and GPL v3+
 Group:		Applications/Multimedia
 Source0:	http://mirrors.xbmc.org/releases/source/%{name}-%{version}.tar.gz
 # Source0-md5:	9e8a26ee25173c7268abea7f1d82d428
+Patch0:		%{name}-format-security.patch
+Patch1:		%{name}-ffmpeg10.patch
 URL:		http://xbmc.org/
 BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	OpenGL-devel
@@ -124,6 +126,8 @@ forecast functions, together third-party plugins.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 ./bootstrap
