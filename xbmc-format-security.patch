@@ -1,0 +1,11 @@
+--- xbmc-11.0/lib/libdvd/libdvdcss/src/libdvdcss.c~	2012-03-21 23:07:50.000000000 +0100
++++ xbmc-11.0/lib/libdvd/libdvdcss/src/libdvdcss.c	2012-11-08 21:55:05.735786045 +0100
+@@ -556,7 +556,7 @@
+ 
+         sprintf( psz_debug, "using CSS key cache dir: %s",
+                             dvdcss->psz_cachefile );
+-        print_debug( dvdcss, psz_debug );
++        print_debug( dvdcss, "%s", psz_debug );
+     }
+     nocache:
+ 
