@@ -14,13 +14,12 @@
 
 Summary:	XBMC is a free and open source media-player and entertainment hub
 Name:		xbmc
-Version:	12.0
-Release:	2
+Version:	12.1
+Release:	1
 License:	GPL v2+ and GPL v3+
 Group:		Applications/Multimedia
 Source0:	http://mirrors.xbmc.org/releases/source/%{name}-%{version}.tar.gz
-# Source0-md5:	a79128b9d094a046947bfd9bb4550809
-Patch0:		%{name}-format-security.patch
+# Source0-md5:	8955473f84cb2a0513c0f3efd7e68843
 URL:		http://xbmc.org/
 BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	OpenGL-devel
@@ -126,7 +125,6 @@ forecast functions, together third-party plugins.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 ./bootstrap
