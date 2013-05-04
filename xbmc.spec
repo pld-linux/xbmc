@@ -12,7 +12,7 @@
 Summary:	XBMC is a free and open source media-player and entertainment hub
 Name:		xbmc
 Version:	12.2
-Release:	1
+Release:	2
 License:	GPL v2+ and GPL v3+
 Group:		Applications/Multimedia
 Source0:	http://mirrors.xbmc.org/releases/source/%{name}-%{version}.tar.gz
@@ -51,6 +51,7 @@ BuildRequires:	libass-devel
 BuildRequires:	libbluray-devel
 BuildRequires:	libcdio-devel
 BuildRequires:	libcec-devel
+BuildRequires:	libcrystalhd-devel
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
@@ -67,6 +68,7 @@ BuildRequires:	libssh-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool
 BuildRequires:	libva-devel
+BuildRequires:	libva-glx-devel
 BuildRequires:	libvdpau-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	lzo-devel
@@ -105,8 +107,6 @@ BuildRequires:	zlib-devel
 #http://mirrors.xbmc.org/build-deps/darwin-libs/libshairport-1.2.0.20310_lib.tar.gz
 #https://github.com/albertz/shairport
 #BuildRequires: libshairport
-#http://www.broadcom.com/support/crystal_hd/
-#BuildRequires:	crystalhd-devel
 Requires:	/usr/bin/glxinfo
 Requires:	SDL >= 1.2.14-5
 Requires:	lsb-release
@@ -127,12 +127,12 @@ forecast functions, together third-party plugins.
 %configure \
 	--disable-debug \
 	--enable-external-libraries \
+	--enable-pulse \
 	--enable-udev \
 	--disable-libusb \
 	--disable-nfs \
 	--disable-afpclient \
 	--disable-airtunes \
-	--disable-crystalhd \
 	%{__enable_disable goom} \
 	%{__enable_disable hal}
 
