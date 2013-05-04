@@ -2,9 +2,6 @@
 # TODO:
 #  - fix build flags - some files are compiled with -O3 and without rpm*flags
 #  - fix linking argument order
-#  - fix nvidia vs. libXrandr >= 1.2 conflict (nvidia drivers still supports
-#    only libXrandr 1.1 - with no gamma support; it causes application crash
-#    on XRRSetCrtcGamma function called by SDL_SetVideoMode)
 #  - add and/or fix users/groups permissions
 #  - split to subpackages?
 #
@@ -14,12 +11,12 @@
 
 Summary:	XBMC is a free and open source media-player and entertainment hub
 Name:		xbmc
-Version:	12.1
+Version:	12.2
 Release:	1
 License:	GPL v2+ and GPL v3+
 Group:		Applications/Multimedia
 Source0:	http://mirrors.xbmc.org/releases/source/%{name}-%{version}.tar.gz
-# Source0-md5:	8955473f84cb2a0513c0f3efd7e68843
+# Source0-md5:	489f3877decae4e265ece54f9eaef0ba
 URL:		http://xbmc.org/
 BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	OpenGL-devel
@@ -53,6 +50,7 @@ BuildRequires:	jasper-devel
 BuildRequires:	libass-devel
 BuildRequires:	libbluray-devel
 BuildRequires:	libcdio-devel
+BuildRequires:	libcec-devel
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libmad-devel
@@ -109,8 +107,6 @@ BuildRequires:	zlib-devel
 #BuildRequires: libshairport
 #http://www.broadcom.com/support/crystal_hd/
 #BuildRequires:	crystalhd-devel
-#http://libcec.pulse-eight.com/
-#BuildRequires:	libcec-devel >= 1.1.0
 Requires:	/usr/bin/glxinfo
 Requires:	SDL >= 1.2.14-5
 Requires:	lsb-release
@@ -132,7 +128,6 @@ forecast functions, together third-party plugins.
 	--disable-debug \
 	--enable-external-libraries \
 	--enable-udev \
-	--disable-libcec \
 	--disable-libusb \
 	--disable-nfs \
 	--disable-afpclient \
@@ -141,6 +136,7 @@ forecast functions, together third-party plugins.
 	%{__enable_disable goom} \
 	%{__enable_disable hal}
 
+LIBS="-lpthread"
 %{__make} V=1
 
 %install
