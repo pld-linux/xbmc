@@ -6,8 +6,9 @@
 #  - split to subpackages?
 #
 # Conditional build:
+%bcond_without	cec	# build without cec support
 %bcond_without	goom	# build without goom visualisation
-%bcond_with	hal			# build with HAL
+%bcond_with	hal	# build with HAL
 
 Summary:	XBMC is a free and open source media-player and entertainment hub
 Name:		xbmc
@@ -20,7 +21,6 @@ Source0:	http://mirrors.xbmc.org/releases/source/%{name}-%{version}.tar.gz
 URL:		http://xbmc.org/
 BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	OpenGL-devel
-BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	alsa-lib-devel
@@ -43,14 +43,14 @@ BuildRequires:	gettext-autopoint
 BuildRequires:	gettext-devel
 BuildRequires:	glew-devel
 BuildRequires:	gperf
-%if %{with hal}
-BuildRequires:	hal-devel
-%endif
+%{?with_hal:BuildRequires:	hal-devel}
 BuildRequires:	jasper-devel
+BuildRequires:	jre
 BuildRequires:	libass-devel
-BuildRequires:	libbluray-devel
+BuildRequires:	libbluray-devel >= 0.2.1
+BuildRequires:	libcap-devel
 BuildRequires:	libcdio-devel
-BuildRequires:	libcec-devel
+%{?with_cec:BuildRequires:	libcec-devel}
 %ifarch i686 pentium4 athlon %{x8664}
 BuildRequires:	libcrystalhd-devel
 %endif
@@ -80,7 +80,6 @@ BuildRequires:	nasm
 %endif
 BuildRequires:	openssl-devel
 BuildRequires:	pcre-cxx-devel
-BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel
 BuildRequires:	python-devel >= 2.4
@@ -89,6 +88,8 @@ BuildRequires:	rpmbuild(macros) >= 1.566
 # used internally
 BuildRequires:	sed >= 4.0
 BuildRequires:	sqlite3-devel
+BuildRequires:	swig
+BuildRequires:	taglib-devel >= 1.8
 BuildRequires:	tinyxml-devel
 BuildRequires:	udev-devel
 BuildRequires:	unzip
@@ -136,7 +137,8 @@ forecast functions, together third-party plugins.
 	--disable-afpclient \
 	--disable-airtunes \
 	%{__enable_disable goom} \
-	%{__enable_disable hal}
+	%{__enable_disable hal} \
+	%{__enable_disable libcec}
 
 LIBS="-lpthread"
 %{__make} V=1
