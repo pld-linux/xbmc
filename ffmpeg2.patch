@@ -113,3 +113,25 @@ index bdad65b..8db5d7b 100644
  #endif
 -- 
 1.8.1.6
+--- xbmc-12.2/xbmc/cores/dvdplayer/DVDCodecs/Overlay/DVDOverlayCodecFFmpeg.cpp~	2013-05-03 07:57:41.000000000 +0200
++++ xbmc-12.2/xbmc/cores/dvdplayer/DVDCodecs/Overlay/DVDOverlayCodecFFmpeg.cpp	2013-08-29 17:52:04.730897230 +0200
+@@ -60,7 +60,7 @@
+   m_pCodecContext->debug_mv = 0;
+   m_pCodecContext->debug = 0;
+   m_pCodecContext->workaround_bugs = FF_BUG_AUTODETECT;
+-  m_pCodecContext->sub_id = hints.identifier;
++//  m_pCodecContext->sub_id = hints.identifier;
+   m_pCodecContext->codec_tag = hints.codec_tag;
+   m_pCodecContext->time_base.num = 1;
+   m_pCodecContext->time_base.den = DVD_TIME_BASE;
+--- xbmc-12.2/xbmc/cores/dvdplayer/DVDDemuxers/DVDDemuxFFmpeg.cpp~	2013-05-03 07:57:41.000000000 +0200
++++ xbmc-12.2/xbmc/cores/dvdplayer/DVDDemuxers/DVDDemuxFFmpeg.cpp	2013-08-29 17:53:46.268749616 +0200
+@@ -1043,7 +1043,7 @@
+         {
+           CDemuxStreamSubtitleFFmpeg* st = new CDemuxStreamSubtitleFFmpeg(this, pStream);
+           m_streams[iId] = st;
+-          st->identifier = pStream->codec->sub_id;
++//          st->identifier = pStream->codec->sub_id;
+ 	    
+           if(m_dllAvUtil.av_dict_get(pStream->metadata, "title", NULL, 0))
+             st->m_description = m_dllAvUtil.av_dict_get(pStream->metadata, "title", NULL, 0)->value;
