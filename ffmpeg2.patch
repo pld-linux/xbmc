@@ -135,3 +135,14 @@ index bdad65b..8db5d7b 100644
  	    
            if(m_dllAvUtil.av_dict_get(pStream->metadata, "title", NULL, 0))
              st->m_description = m_dllAvUtil.av_dict_get(pStream->metadata, "title", NULL, 0)->value;
+--- xbmc-12.2/xbmc/cores/dvdplayer/DVDCodecs/Video/DVDVideoCodecFFmpeg.cpp~	2013-08-29 17:38:17.554580558 +0200
++++ xbmc-12.2/xbmc/cores/dvdplayer/DVDCodecs/Video/DVDVideoCodecFFmpeg.cpp	2013-08-29 17:58:10.471835362 +0200
+@@ -275,7 +275,7 @@
+   }
+ 
+   // set acceleration
+-  m_pCodecContext->dsp_mask = 0;//FF_MM_FORCE | FF_MM_MMX | FF_MM_MMXEXT | FF_MM_SSE;
++//  m_pCodecContext->dsp_mask = 0;//FF_MM_FORCE | FF_MM_MMX | FF_MM_MMXEXT | FF_MM_SSE;
+ 
+   // advanced setting override for skip loop filter (see avcodec.h for valid options)
+   // TODO: allow per video setting?
