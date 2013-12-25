@@ -13,7 +13,7 @@
 Summary:	XBMC is a free and open source media-player and entertainment hub
 Name:		xbmc
 Version:	12.2
-Release:	5
+Release:	6
 License:	GPL v2+ and GPL v3+
 Group:		Applications/Multimedia
 Source0:	http://mirrors.xbmc.org/releases/source/%{name}-%{version}.tar.gz
