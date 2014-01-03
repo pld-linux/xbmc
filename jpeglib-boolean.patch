@@ -1,0 +1,53 @@
+--- xbmc-12.3-Frodo/xbmc/guilib/JpegIO.cpp~	2013-12-12 22:47:49.000000000 +0100
++++ xbmc-12.3-Frodo/xbmc/guilib/JpegIO.cpp	2014-01-03 18:43:06.138467273 +0100
+@@ -341,7 +341,7 @@
+   else
+   {
+     jpeg_save_markers (&m_cinfo, JPEG_APP0 + 1, 0xFFFF);
+-    jpeg_read_header(&m_cinfo, true);
++    jpeg_read_header(&m_cinfo, TRUE);
+ 
+     /*  libjpeg can scale the image for us if it is too big. It must be in the format
+     num/denom, where (for our purposes) that is [1-8]/8 where 8/8 is the unscaled image.
+--- xbmc-12.3-Frodo/xbmc/guilib/JpegIO.h~	2014-01-03 11:07:38.000000000 +0100
++++ xbmc-12.3-Frodo/xbmc/guilib/JpegIO.h	2014-01-03 11:08:16.622039556 +0100
+@@ -26,6 +26,8 @@
+ #pragma comment(lib, "turbojpeg-static.lib")
+ #endif
+ 
++#undef TRUE
++#undef FALSE
+ #include <jpeglib.h>
+ #include "utils/StdString.h"
+ 
+--- xbmc-12.3-Frodo/lib/cximage-6.0/CxImage/ximajpg.cpp~	2013-12-12 22:47:49.000000000 +0100
++++ xbmc-12.3-Frodo/lib/cximage-6.0/CxImage/ximajpg.cpp	2014-01-03 11:52:50.862020197 +0100
+@@ -10,7 +10,7 @@
+ #if CXIMAGE_SUPPORT_JPG
+ 
+ #ifdef _LINUX
+-#include <jmorecfg.h>
++//#include <jmorecfg.h>
+ #else
+ #include "../jpeg/jmorecfg.h"
+ #endif
+@@ -659,7 +659,7 @@
+ 	if ((GetCodecOption(CXIMAGE_FORMAT_JPG) & ENCODE_SMOOTHING) != 0)
+ 		cinfo.smoothing_factor = m_nSmoothing;
+ 
+-	jpeg_set_quality(&cinfo, GetJpegQuality(), (GetCodecOption(CXIMAGE_FORMAT_JPG) & ENCODE_BASELINE) != 0);
++	jpeg_set_quality(&cinfo, GetJpegQuality(), (boolean)((GetCodecOption(CXIMAGE_FORMAT_JPG) & ENCODE_BASELINE) != 0));
+ 
+ //#ifdef C_PROGRESSIVE_SUPPORTED
+ 	if ((GetCodecOption(CXIMAGE_FORMAT_JPG) & ENCODE_PROGRESSIVE) != 0)
+--- xbmc-12.3-Frodo/lib/cximage-6.0/CxImage/ximajpg.h~	2014-01-03 11:51:37.000000000 +0100
++++ xbmc-12.3-Frodo/lib/cximage-6.0/CxImage/ximajpg.h	2014-01-03 18:05:40.095150198 +0100
+@@ -29,6 +29,8 @@
+ 
+ extern "C" {
+ #ifdef _LINUX
++#undef TRUE
++#undef FALSE
+  #include <jpeglib.h>
+  #include <jerror.h>
+ #else
