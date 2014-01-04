@@ -1,0 +1,27 @@
+--- xbmc-12.3-Frodo/configure.in.orig	2013-12-12 22:47:49.000000000 +0100
++++ xbmc-12.3-Frodo/configure.in	2014-01-03 22:57:57.000000000 +0100
+@@ -1573,15 +1573,6 @@
+   USE_EXTERNAL_FFMPEG=1
+   AC_DEFINE([USE_EXTERNAL_FFMPEG], [1], [Whether to use external FFmpeg libraries.])
+ 
+-  # Disable vdpau support if external libavcodec doesn't have it
+-  AC_CHECK_LIB([avcodec], [ff_vdpau_vc1_decode_picture],,
+-    [if test "x$use_vdpau" = "xyes"; then
+-      AC_MSG_ERROR($ffmpeg_vdpau_not_supported)
+-    else
+-      use_vdpau=no
+-      AC_MSG_RESULT($ffmpeg_vdpau_not_supported)
+-    fi])
+-
+   # Check for 'PIX_FMT_VDPAU_MPEG4' from libavutil
+   if test "x$use_vdpau" != "xno"; then
+     AC_LANG_PUSH([C++])
+@@ -2539,7 +2530,7 @@
+     # extra-cflags must be passed alone or it gets expanded wrong by the ffmpeg configure
+     FFMPEG_EXTRACFLAGS="$CFLAGS $FFMPEG_EXTRACFLAGS -w -D_DARWIN_C_SOURCE -Dattribute_deprecated="
+ 
+-    ./configure --extra-cflags="$FFMPEG_EXTRACFLAGS" $ffmpg_config --as="$AS"
++    LDFLAGS="$LDFLAGS" ./configure --extra-cflags="$FFMPEG_EXTRACFLAGS" $ffmpg_config --as="$AS"
+ 
+     # if using llvm-gcc-4.2 as assembler, -MMD is not enough to generate
+     # dependency files in the right place, replace it with something that works

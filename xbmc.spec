@@ -22,6 +22,7 @@ Source0:	http://mirrors.xbmc.org/releases/source/%{name}-%{version}.tar.gz
 # Source0-md5:	7ae385ebf8e5cfcb917393235e6efbdb
 Patch0:		ffmpeg2.patch
 Patch1:		jpeglib-boolean.patch
+Patch2:		%{name}-vdpau.patch
 URL:		http://xbmc.org/
 BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	OpenGL-devel
@@ -131,6 +132,7 @@ forecast functions, together third-party plugins.
 %setup -q -n %{name}-%{version}-%{codename}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 ./bootstrap
