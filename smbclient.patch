@@ -1,0 +1,12 @@
+--- xbmc-12.3-Frodo/configure.in~	2014-01-21 12:39:13.709404239 +0100
++++ xbmc-12.3-Frodo/configure.in	2014-01-21 12:44:02.928731740 +0100
+@@ -1309,7 +1309,8 @@
+ 
+ # samba
+ if test "x$use_samba" != "xno"; then
+-  AC_CHECK_LIB([smbclient], [main],,
++  PKG_CHECK_MODULES([LIBSMBCLIENT],    [smbclient],
++  [INCLUDES="$INCLUDES $LIBSMBCLIENT_CFLAGS"; LIBS="$LIBS $LIBSMBCLIENT_LIBS"],
+     use_samba=no;AC_MSG_ERROR($missing_library))
+     USE_LIBSMBCLIENT=0
+ else
