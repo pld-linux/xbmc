@@ -10,21 +10,17 @@
 %bcond_without	goom	# build without goom visualisation
 %bcond_with	hal	# build with HAL
 
-%define	codename Frodo
+%define	codename Gotham
 
 Summary:	XBMC is a free and open source media-player and entertainment hub
 Name:		xbmc
-Version:	12.3
-Release:	3
+Version:	13.2
+Release:	1
 License:	GPL v2+ and GPL v3+
 Group:		Applications/Multimedia
 Source0:	http://mirrors.xbmc.org/releases/source/%{name}-%{version}.tar.gz
-# Source0-md5:	7ae385ebf8e5cfcb917393235e6efbdb
-Patch0:		ffmpeg2.patch
-Patch1:		jpeglib-boolean.patch
-Patch2:		%{name}-vdpau.patch
-Patch3:		smbclient.patch
-Patch4:		ffmpeg2.2.patch
+# Source0-md5:	d80153b2cc78b88966458ab136e9494f
+Patch0:		jpeglib-boolean.patch
 URL:		http://xbmc.org/
 BuildRequires:	Mesa-libGLU-devel
 BuildRequires:	OpenGL-devel
@@ -133,10 +129,6 @@ forecast functions, together third-party plugins.
 %prep
 %setup -q -n %{name}-%{version}-%{codename}
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
 
 %build
 ./bootstrap
