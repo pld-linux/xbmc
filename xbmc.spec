@@ -43,7 +43,7 @@ BuildRequires:	freetype-devel
 BuildRequires:	fribidi-devel
 BuildRequires:	gawk
 BuildRequires:	gettext-autopoint
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glew-devel
 BuildRequires:	gperf
 %{?with_hal:BuildRequires:	hal-devel}
